@@ -1,0 +1,74 @@
+/* Patch nested streamfields */
+.sequence-member:hover {
+    /* From this */
+    .sequence-controls,
+    .stream-menu-closed {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* To this */
+    > .sequence-controls,
+    > .stream-menu-closed {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.sequence-container:hover > .stream-menu-closed {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+li.sequence-member .columns-block.struct-block {
+    padding-top: 1em;
+    margin-left: -50px;
+    margin-right: -50px;
+
+    > .fields {
+        display: flex;
+        float: none;
+        width: 100%;
+
+        > li {
+            width: 100%;
+            flex: 1;
+
+            > label {
+                display: none;
+            }
+
+            > .sequence-container {
+                width: 100%;
+
+                .sequence-member {
+                    border-top: 1px solid transparent;
+                    border-bottom: 1px solid transparent;
+
+                    > .sequence-member-inner {
+                        padding-left: 50px;
+                        padding-right: 50px;
+                    }
+
+                    .stream-menu-inner {
+                        margin-left: 1em;
+                        margin-right: 1em;
+                    }
+                    
+                    &:hover {
+                        border-color: #ccf1f1;
+                    }
+                }
+
+                .richtext {
+                    border: 0;
+                    padding: 0;
+                    background-color: transparent;
+                    max-width: 1024px;
+                }
+            }
+        }
+
+    }
+}
