@@ -1,0 +1,26 @@
+{
+  "name": "wagtailcolumnblocks",
+  "version": "1.0.0",
+  "description": "A generic, reusable column block for Wagtail streamfields.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "node-sass": "^4.5.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "node-sass wagtailcolumnblocks/assets/*.scss  -o wagtailcolumnblocks/static/wagtailcolumnblocks/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/squareweave/wagtailcolumnblocks.git"
+  },
+  "author": "Danielle Madeley",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/squareweave/wagtailcolumnblocks/issues"
+  },
+  "homepage": "https://github.com/squareweave/wagtailcolumnblocks#readme"
+}
