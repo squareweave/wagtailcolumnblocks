@@ -1,0 +1,30 @@
+sudo: false
+language: python
+
+python:
+    # - '3.4'
+    # - '3.5'
+    - '3.6'
+
+cache:
+    - pip
+
+install:
+    - pip install -r requirements.txt
+    - npm install
+
+script: true
+
+deploy:
+    provider: pypi
+    user: danni
+    password:
+        secure: "YrenkYHviXJ0/4u9yQy0sOGyYQYnyZ/1yappfwHoGZU7oWOG+CBCfx4/pRwia0pC9eiANo98l13KuT3Jky4nRvzapyflRDnOH3uKyClc8xA3XnZPRG6fOTfKP2Conms08+xQFxAYDAFzUGG6bIOxejV7IiyFeaL4I3hU5JxrPwu7R3pwfA8f8KGi97EpgBw7ZPKAjUbwyngJPXUF3vTlLi+bvCV9ZO5DJuwIgNakkdeI0aA0vmMWAfDE+jHZwbruoGMH1PyeScecPH0VRLmzGqwO+Y3oBHck/E9RRU6mRV8XtywEu3ASeSstnjkOKOKbBmhbt83hes7ZufX1u0+wcX2f6k1WIBjb1nrFnt015x2XnBaCzSvcK+PtLwdC9lztfEr55bAPsZCFt+1d7Al467yThMbsa/OAnjge7Xs8eh/HOVtSa4HrPoP7OAsDcSg9n8ksxYKic33AwqIcE5hMyHWhF2WrDzlCeODlweXHQU72dtyjImNnjHupsOb+y6b83XjzEx2osmNnnUNjB0ZTCyTo3fd5enUok0cSGFUOCRo0bB48WuOq/E9rewQx7piNMIySKPJCfGq96s8Ck54NZnMd8PKjTOFeoqG+PXwEJZidQBba7iBhvn6KQ1eRh6uH6BBpMc8eLByfnVXID9cDnU8mkdz1NbhcFHHrqr05F/8="
+
+    skip_cleanup: true
+    skip_upload_docs: true
+
+    on:
+        tags: true
+        python: 3.6
+
