@@ -1,7 +1,21 @@
-from wagtail.utils.setup import sdist, check_bdist_egg
 
 from setuptools import setup
 
+try:
+    from wagtail.utils.setup import sdist, check_bdist_egg
+    cmdclass = {
+        'sdist': sdist,
+        'bdist_egg': check_bdist_egg,
+    }
+
+except ImportError:
+    def _not_implemented(*args, **kwargs):
+        raise NotImplementedError("wagtail is required to distribute this package")
+
+    cmdclass = {
+        'sdist': _not_implemented,
+        'bdist_egg': _not_implemented,
+    }
 
 setup(
     name='wagtailcolumnblocks',
@@ -31,11 +45,7 @@ setup(
         'wagtail >= 1.12',
     ],
     setup_requires=[
-        'wagtail >= 1.12',
         'setuptools_scm',
     ],
-    cmdclass={
-        'sdist': sdist,
-        'bdist_egg': check_bdist_egg,
-    },
+    cmdclass=cmdclass,
 )
