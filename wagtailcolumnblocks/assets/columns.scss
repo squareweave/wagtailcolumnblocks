@@ -36,6 +36,17 @@ li.sequence-member .columns-block.struct-block {
 
             > label {
                 display: none;
+                color: #43b1b0;
+                font-weight: 400;
+                text-transform: uppercase;
+                width: 100%;
+                padding: 5px;
+                position: absolute;
+                top: -22px;
+            }
+
+            &:hover > label {
+                display: block;
             }
 
             > .sequence-container {
