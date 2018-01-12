@@ -1,7 +1,6 @@
 /* Patch nested streamfields */
 .sequence-member:hover,
-.sequence-container:hover,
-.sequence-container:first-of-type {
+.sequence-container:hover {
     /* From this */
     .sequence-controls,
     .stream-menu-closed {
@@ -51,6 +50,7 @@ li.sequence-member .columns-block.struct-block {
 
             > .sequence-container {
                 width: 100%;
+                height: 100%;
 
                 .sequence-member {
                     border-top: 1px solid transparent;
