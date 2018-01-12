@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "node-sass wagtailcolumnblocks/assets/*.scss  -o wagtailcolumnblocks/static/wagtailcolumnblocks/"
+    "dist": "node-sass wagtailcolumnblocks/assets/*.scss  -o wagtailcolumnblocks/static/wagtailcolumnblocks/"
   },
   "repository": {
     "type": "git",

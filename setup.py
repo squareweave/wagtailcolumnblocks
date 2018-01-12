@@ -42,7 +42,7 @@ setup(
     include_package_data=True,
 
     install_requires=[
-        'wagtail >= 1.12',
+        'wagtail >= 1.13',
     ],
     setup_requires=[
         'setuptools_scm',
