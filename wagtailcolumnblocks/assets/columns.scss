@@ -25,11 +25,13 @@ li.sequence-member .columns-block.struct-block {
 
     > .fields {
         display: flex;
+        flex-wrap: wrap;
         float: none;
         width: 100%;
 
         > li {
             width: 100%;
+            min-width: 400px;
             flex: 1;
 
             > label {
