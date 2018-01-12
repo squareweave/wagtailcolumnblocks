@@ -1,5 +1,7 @@
 /* Patch nested streamfields */
-.sequence-member:hover {
+.sequence-member:hover,
+.sequence-container:hover,
+.sequence-container:first-of-type {
     /* From this */
     .sequence-controls,
     .stream-menu-closed {
@@ -13,11 +15,6 @@
         opacity: 1;
         visibility: visible;
     }
-}
-
-.sequence-container:hover > .stream-menu-closed {
-    opacity: 1;
-    visibility: visible;
 }
 
 
