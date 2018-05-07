@@ -6,7 +6,7 @@ from django import forms
 from django.apps import apps
 from django.contrib.staticfiles.templatetags.staticfiles import static
 
-from wagtail.wagtailcore import blocks
+from wagtail.core import blocks
 
 
 class ColumnsBlock(blocks.StructBlock):
