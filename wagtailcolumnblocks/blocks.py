@@ -31,20 +31,20 @@ class ColumnsBlock(blocks.StructBlock):
         class ColumnBlocks(blocks.StreamBlock):
             column_1_1 = ColumnsBlock(
                 CommonBlocks(),
+                # Two halves
                 ratios=(1, 1),
-                label="Two halves",
                 group="Columns",
             )
             column_2_1 = ColumnsBlock(
                 CommonBlocks(),
+                # Two thirds/One third
                 ratios=(2, 1),
-                label="Two thirds/One third",
                 group="Columns",
             )
             column_1_1_1 = ColumnsBlock(
                 CommonBlocks(),
+                # Three thirds
                 ratios=(1, 1, 1),
-                label="Three thirds",
                 group="Columns",
             )
 
