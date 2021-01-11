@@ -8,6 +8,7 @@ setup(
     author_email='hosting+pypi@squareweave.com.au',
     url='https://github.com/squareweave/wagtailcolumnblocks',
     long_description=open('README.md').read(),
+    long_description_content_type="text/markdown",
     license='BSD',
     classifiers=[
         'Environment :: Web Environment',
