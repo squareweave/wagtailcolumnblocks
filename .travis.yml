@@ -11,18 +11,16 @@ cache:
 
 install:
     - pip install -r requirements.txt
-    - npm install
 
 script: true
 
 deploy:
     provider: pypi
-    user: danni
+    user: squareweave
     password:
-        secure: "YrenkYHviXJ0/4u9yQy0sOGyYQYnyZ/1yappfwHoGZU7oWOG+CBCfx4/pRwia0pC9eiANo98l13KuT3Jky4nRvzapyflRDnOH3uKyClc8xA3XnZPRG6fOTfKP2Conms08+xQFxAYDAFzUGG6bIOxejV7IiyFeaL4I3hU5JxrPwu7R3pwfA8f8KGi97EpgBw7ZPKAjUbwyngJPXUF3vTlLi+bvCV9ZO5DJuwIgNakkdeI0aA0vmMWAfDE+jHZwbruoGMH1PyeScecPH0VRLmzGqwO+Y3oBHck/E9RRU6mRV8XtywEu3ASeSstnjkOKOKbBmhbt83hes7ZufX1u0+wcX2f6k1WIBjb1nrFnt015x2XnBaCzSvcK+PtLwdC9lztfEr55bAPsZCFt+1d7Al467yThMbsa/OAnjge7Xs8eh/HOVtSa4HrPoP7OAsDcSg9n8ksxYKic33AwqIcE5hMyHWhF2WrDzlCeODlweXHQU72dtyjImNnjHupsOb+y6b83XjzEx2osmNnnUNjB0ZTCyTo3fd5enUok0cSGFUOCRo0bB48WuOq/E9rewQx7piNMIySKPJCfGq96s8Ck54NZnMd8PKjTOFeoqG+PXwEJZidQBba7iBhvn6KQ1eRh6uH6BBpMc8eLByfnVXID9cDnU8mkdz1NbhcFHHrqr05F/8="
+        secure: wNGfyS5RgV+WK8hX8+Gxqt9wv76DiKllGO9UJtoH8R0JdaDa1Yn+YfKNLvO6hHpha2USaop+jz+AQLLpqM0HdTOUBQshWLrIfi1fD7SDGmzGikaxywZYASsd7IJ5qF2xkRJwHVGK6UVI3fG0u7/5Hw46MBMXFT5w2chO7c00MjjS3UBoblA8gLvrUjrDnHgoD5IQGPAXoQby3SKne1tupkz3nAf66pOuJoDDQHPKgvNpgLTXNkTazySFlU0FXe5nDTeSy1vYOo+Ul0GnMM1ciWgEjFNYa/kvUs6mrpyc9VnYlFgpbCRIzVoVBTNz6Blk+cdWIYHpxeYxc28DjqSNvLu2t+FSIZhrGa/j5eU6E+y8SwHN38vwxv0e9yZ4xmm3VZpJWTamyIaFlFEUcqVF53lEdxTyhVf+sjvvJowS0E6UxihUpyjmxXEdI3KUZc4dnwb4MMus1RIFWhpItqZ2mx/ViWqNeqpaaGYVV6TjbB1NLIidIQSaBAqHTSgC3KWH6d7AujGNvMGG1YnayAHRLI9+4CE25EVtiLHcQ/JVlDDw9Jfk5/FfTW86zkNtxh73leL06XOcwrEYcq4OONAX0ctx23r45SJRgLiyIWOIhaU/GdU8SFef8YeCI1chmuLmXhgUZ6H5NErvCQcPS79Zpe5p5ZG7iMsBHMdZS8Cd7W0=
 
     skip_upload_docs: true
-    skip_cleanup: true  # Required for node_modules
 
     on:
         tags: true
