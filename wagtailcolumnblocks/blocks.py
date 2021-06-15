@@ -57,8 +57,8 @@ class ColumnsBlock(blocks.StructBlock):
     """
 
     def __init__(self, childblocks, ratios=(1, 1), **kwargs):
-        super().__init__([
-            ('column_%i' % index, childblocks)
+        super().__init__(local_blocks=[
+            ('column_%i' % index, childblocks())
             for index, _ in enumerate(ratios)
         ], **kwargs)
         self.ratios = ratios
@@ -80,6 +80,11 @@ class ColumnsBlock(blocks.StructBlock):
         })
 
         return context
+
+    def get_form_state(self, value):
+        form_state = super().get_form_state(value)
+
+        return form_state
 
     def get_context(self, value, **kwargs):
         context = super().get_context(value, **kwargs)
