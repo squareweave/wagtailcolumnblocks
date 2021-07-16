@@ -4,8 +4,18 @@ Block definitions for generic column blocks.
 
 from django import forms
 from django.apps import apps
+from django.templatetags.static import static
+from django.utils.html import format_html
 
-from wagtail.core import blocks
+from wagtail.core import blocks, hooks
+
+
+@hooks.register('insert_editor_css')
+def editor_css():
+    return format_html(
+        '<link rel="stylesheet" href="{}">',
+        static('wagtailcolumnblocks/columns.css')
+    )
 
 
 class ColumnsBlock(blocks.StructBlock):
@@ -29,19 +39,19 @@ class ColumnsBlock(blocks.StructBlock):
 
         class ColumnBlocks(blocks.StreamBlock):
             column_1_1 = ColumnsBlock(
-                CommonBlocks(),
+                CommonBlocks,
                 # Two halves
                 ratios=(1, 1),
                 group="Columns",
             )
             column_2_1 = ColumnsBlock(
-                CommonBlocks(),
+                CommonBlocks,
                 # Two thirds/One third
                 ratios=(2, 1),
                 group="Columns",
             )
             column_1_1_1 = ColumnsBlock(
-                CommonBlocks(),
+                CommonBlocks,
                 # Three thirds
                 ratios=(1, 1, 1),
                 group="Columns",
@@ -58,7 +68,7 @@ class ColumnsBlock(blocks.StructBlock):
 
     def __init__(self, childblocks, ratios=(1, 1), **kwargs):
         super().__init__([
-            ('column_%i' % index, childblocks)
+            ('column_%i' % index, childblocks())
             for index, _ in enumerate(ratios)
         ], **kwargs)
         self.ratios = ratios
@@ -71,14 +81,12 @@ class ColumnsBlock(blocks.StructBlock):
             for ratio in self.ratios
         ]
 
-    def get_form_context(self, *args, **kwargs):
-        context = super().get_form_context(*args, **kwargs)
-
+    def get_form_context(self, value, prefix='', errors=None):
+        context = super().get_form_context(value, prefix=prefix, errors=errors)
         children = context['children']
         context.update({
             'columns': zip(children.values(), self.ratios),
         })
-
         return context
 
     def get_context(self, value, **kwargs):
@@ -99,8 +107,3 @@ class ColumnsBlock(blocks.StructBlock):
         if apps.is_installed('wagtailfontawesome'):
             icon = 'fa-columns'
 
-    @property
-    def media(self):
-        return super().media + forms.Media(css={
-            'all': ('wagtailcolumnblocks/columns.css',),
-        })

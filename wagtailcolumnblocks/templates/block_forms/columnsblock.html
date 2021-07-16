@@ -1,17 +1,26 @@
+{% load wagtailadmin_tags  %}
+
 <div class="{{ classname }}">
     {% if help_text %}
-        <div class="object-help help">{{ help_text }}</div>
+        <span>
+            <div class="help">
+                {% icon name="help" class_name="default" %}
+                {{ help_text }}
+            </div>
+        </span>
     {% endif %}
 
     <ul class="fields">
         {% for child, ratio in columns %}
-            <li{% if child.block.required %} class="required"{% endif %}
-                                             style="flex: {{ ratio }};">
+            <li class="field {% if child.block.required %}required{% endif %}"
+                data-contentpath="{{ child.block.name }}"
+                style="flex: {{ ratio }};">
                 {% if child.block.label %}
-                    <label{% if child.id_for_label %} for="{{ child.id_for_label }}"{% endif %}>{{ child.block.label }}</label>
+                    <label class="field__label" {% if child.id_for_label %} for="{{ child.id_for_label }}"{% endif %}>{{ child.block.label }}</label>
                 {% endif %}
                 {{ child.render_form }}
             </li>
         {% endfor %}
     </ul>
 </div>
+
