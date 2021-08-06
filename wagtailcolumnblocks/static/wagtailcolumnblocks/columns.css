@@ -29,7 +29,6 @@ li.sequence-member .columns-block.struct-block {
     width: 100%; }
     li.sequence-member .columns-block.struct-block > .fields > li {
       width: 100%;
-      min-width: 400px;
       flex: 1; }
       li.sequence-member .columns-block.struct-block > .fields > li > label {
         display: none;
@@ -76,7 +75,6 @@ li.sequence-member .columns-block.struct-block {
   }
     .c-sf-block .columns-block.struct-block > .fields > li {
       width: 100%;
-      min-width: 400px;
       flex: 1; 
     }
       .c-sf-block .columns-block.struct-block > .fields > li > label {
