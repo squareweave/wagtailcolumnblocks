@@ -1,6 +1,7 @@
 """
 Block definitions for generic column blocks.
 """
+import warnings
 
 from django import forms
 from django.apps import apps
@@ -67,6 +68,13 @@ class ColumnsBlock(blocks.StructBlock):
     """
 
     def __init__(self, childblocks, ratios=(1, 1), **kwargs):
+        if not callable(childblocks):
+            childblocks_instance = childblocks
+            childblocks = lambda: childblocks_instance
+            warnings.warn(
+                'Using instance as `childblocks` argument for `ColumnsBlock` has been deprecated. Use class instead.',
+                category=DeprecationWarning,
+            )
         super().__init__([
             ('column_%i' % index, childblocks())
             for index, _ in enumerate(ratios)
@@ -81,8 +89,8 @@ class ColumnsBlock(blocks.StructBlock):
             for ratio in self.ratios
         ]
 
-    def get_form_context(self, value, prefix='', errors=None):
-        context = super().get_form_context(value, prefix=prefix, errors=errors)
+    def get_form_context(self, *args, **kwargs):
+        context = super().get_form_context(*args, **kwargs)
         children = context['children']
         context.update({
             'columns': zip(children.values(), self.ratios),
@@ -106,4 +114,11 @@ class ColumnsBlock(blocks.StructBlock):
 
         if apps.is_installed('wagtailfontawesome'):
             icon = 'fa-columns'
+
+    @property
+    def media(self):
+        # Wagtail <2.13
+        return super().media + forms.Media(css={
+            'all': ('wagtailcolumnblocks/columns.css',),
+        })
 
