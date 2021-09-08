@@ -15,10 +15,11 @@ setup(
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        'Framework :: Django :: 1.11',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Framework :: Django :: 2',
         'Topic :: Internet :: WWW/HTTP :: Site Management',
     ],
 
@@ -26,7 +27,7 @@ setup(
     include_package_data=True,
 
     install_requires=[
-        'wagtail >= 2.0',
+        'wagtail >= 2.10',
     ],
     setup_requires=[
         'setuptools_scm',
