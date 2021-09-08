@@ -52,7 +52,7 @@ class MyColumnBlocks(blocks.StreamBlock):
     """
     column_2_1 = ColumnsBlock(
         # Blocks you want to allow within each column
-        MyContentBlocks(),
+        MyContentBlocks,
         # Two columns in admin, first twice as wide as the second
         ratios=(2, 1),
         # Used for grouping related fields in the streamfield field picker
