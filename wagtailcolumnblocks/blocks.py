@@ -8,7 +8,7 @@ from django.apps import apps
 from django.templatetags.static import static
 from django.utils.html import format_html
 
-from wagtail.core import blocks, hooks
+from wagtail import blocks, hooks
 
 
 @hooks.register('insert_editor_css')
