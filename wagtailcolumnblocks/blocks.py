@@ -7,8 +7,12 @@ from django import forms
 from django.apps import apps
 from django.templatetags.static import static
 from django.utils.html import format_html
+from wagtail import VERSION as wagtail_version
 
-from wagtail import blocks, hooks
+if wagtail_version >= (5, 0):
+    from wagtail import blocks, hooks
+else:
+    from wagtail.core import blocks, hooks
 
 
 @hooks.register('insert_editor_css')
