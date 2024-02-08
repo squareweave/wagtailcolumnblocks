@@ -9,18 +9,25 @@ from django.templatetags.static import static
 from django.utils.html import format_html
 from wagtail import VERSION as wagtail_version
 
+
 if wagtail_version >= (5, 0):
     from wagtail import blocks, hooks
+
+    @hooks.register('insert_global_admin_css')
+    def global_admin_css():
+        return format_html(
+            '<link rel="stylesheet" href="{}">',
+            static('wagtailcolumnblocks/columns.css')
+        )
 else:
     from wagtail.core import blocks, hooks
 
-
-@hooks.register('insert_editor_css')
-def editor_css():
-    return format_html(
-        '<link rel="stylesheet" href="{}">',
-        static('wagtailcolumnblocks/columns.css')
-    )
+    @hooks.register('insert_editor_css')
+    def editor_css():
+        return format_html(
+            '<link rel="stylesheet" href="{}">',
+            static('wagtailcolumnblocks/columns.css')
+        )
 
 
 class ColumnsBlock(blocks.StructBlock):
