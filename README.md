@@ -117,4 +117,4 @@ License
 
 Licensed under the BSD 3-clause "New" or "Revised" License.
 
-(c) 2019, Squareweave. All rights reserved.
+(c) 2017-2024, Squareweave. All rights reserved.

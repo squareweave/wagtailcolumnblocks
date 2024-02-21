@@ -7,12 +7,20 @@ from django import forms
 from django.apps import apps
 from django.templatetags.static import static
 from django.utils.html import format_html
+from wagtail import VERSION as wagtail_version
 
-from wagtail.core import blocks, hooks
+
+if wagtail_version >= (5, 0):
+    from wagtail import blocks, hooks
+    hook_register_name = 'insert_global_admin_css'
+
+else:
+    from wagtail.core import blocks, hooks
+    hook_register_name = 'insert_editor_css'
 
 
-@hooks.register('insert_editor_css')
-def editor_css():
+@hooks.register(hook_register_name)
+def global_admin_css():
     return format_html(
         '<link rel="stylesheet" href="{}">',
         static('wagtailcolumnblocks/columns.css')
